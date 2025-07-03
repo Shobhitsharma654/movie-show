@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { type } from './../node_modules/@types/whatwg-url/index.d';
+
 
 const UserSchema = new Schema({
     _id: {
