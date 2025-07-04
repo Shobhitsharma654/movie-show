@@ -7,22 +7,27 @@ import { inngest, functions } from "./inngest/index.js"
 import { serve } from "inngest/express";
 import showRouter from "./routes/showRoutes.js";
 import bookingRouter from "./routes/bookingRoutes.js";
+import adminRouter from "./routes/adminRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
-const app = express()
+const app = express();
 const port = 4000;
+
+await connectDB();
 
 app.use(express.json())
 app.use(cors())
 app.use(clerkMiddleware())
 
-await connectDB();
 
 app.get("/" , (req,res)=>{
     res.send("server is live")
 })
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/show" , showRouter)
-app.use("/api/booing" , bookingRouter)
+app.use("/api/booking" , bookingRouter)
+app.use("/api/admin" , adminRouter)
+app.use("/api/user" , userRouter)
 
 
 
