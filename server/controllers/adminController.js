@@ -2,6 +2,7 @@
 
 import Booking from "../models/Booking.js"
 import Show from "../models/Show.js"
+import User from "../models/User.js"
 
 export const isAdmin = async(req, res)=>{
     res.json({success:true , isAdmin:true})
@@ -10,7 +11,7 @@ export const isAdmin = async(req, res)=>{
 export const getDashboardData = async(req,res)=>{
     try {
         const bookings = await Booking.find({isPaid:true})
-        const activeShows = await Show.find({showDateTime:{$gte:new Date()}}).populate("movie")
+        const activeShows = await Show.find({showDateTime: {$gte:new Date()}}).populate("movie")
 
         const totalUser = await User.countDocuments()
 
