@@ -14,12 +14,12 @@ const checkSeatsAvailability = async(showId , selectedSeats) =>{
         const isAnySeatTaken = selectedSeats.some(seat => occupiedSeats[seat]);
         return !isAnySeatTaken;
     } catch (error) {
-        console.error(error)
+        console.error(error.message)
         return false;
     }
 }
 
-export const creatBooking = async()=>{
+export const createBooking = async()=>{
     try {
         const {userId} = req.auth();
         const {showId , selectedSeats} = req.body;

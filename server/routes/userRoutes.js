@@ -3,7 +3,7 @@ import { getFavorites, getUserBookings, updateFavorite } from "../controllers/us
 
 const userRouter = express.Router();
 
-userRouter.get("/bookings" , getUserBookings)
+userRouter.get("/bookings" ,  getUserBookings)
 userRouter.get("/update-favorite" , updateFavorite)
 userRouter.get("/favorites" , getFavorites)
 

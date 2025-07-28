@@ -23,7 +23,7 @@ export const getDashboardData = async(req,res)=>{
         res.json({success:true , dashboardData})
     } catch (error) {
         console.error(error)
-        res.json({success:false , message:error.message})
+        res.json({success:false , message:"not get a dashboard data"})
     }
 }
 
@@ -35,7 +35,7 @@ export const getAllShows = async(req,res)=>{
          res.json({success:true , shows})
     } catch (error) {
         console.error(error)
-        res.json({success:false , message:error.message})
+        res.json({success:false , message:"not get all shows"})
     }
 }
     // Api to get all bookings
@@ -50,6 +50,6 @@ export const getAllShows = async(req,res)=>{
        success:true , bookings})
         } catch (error) {
               console.error(error)
-        res.json({success:false , message:error.message})
+        res.json({success:false , message:"not getting all bookings"})
         }
     }
